@@ -1,0 +1,193 @@
+将真人录音 MP3 按以下文件名放入 assets/audio/ 目录，App 会优先播放真人音频；
+未提供的文件会自动回退到“慢速语音合成”（TTS）。每行一个文件，注释为内容说明。
+
+命名规则：
+  字母单元  : <字母>_intro / <字母>_<单词> / <字母>_chant   （如 Aa_intro.mp3）
+  短元音单元: v_<元音>_intro / v_<元音>_<单词> / v_<元音>_chant （如 v_a_cat.mp3）
+
+Aa_intro.mp3   // Aa 字母名 + 发音 /æ/
+Aa_ant.mp3   // ant（蚂蚁）
+Aa_apple.mp3   // apple（苹果）
+Aa_alligator.mp3   // alligator（短吻鳄）
+Aa_ax.mp3   // ax（斧头）
+Aa_chant.mp3   // 完整跟读歌谣（4 句）
+Bb_intro.mp3   // Bb 字母名 + 发音 /b/
+Bb_ball.mp3   // ball（球）
+Bb_banana.mp3   // banana（香蕉）
+Bb_book.mp3   // book（书）
+Bb_bus.mp3   // bus（公交车）
+Bb_chant.mp3   // 完整跟读歌谣（4 句）
+Cc_intro.mp3   // Cc 字母名 + 发音 /k/
+Cc_car.mp3   // car（汽车）
+Cc_cat.mp3   // cat（猫）
+Cc_cup.mp3   // cup（杯子）
+Cc_cap.mp3   // cap（帽子）
+Cc_chant.mp3   // 完整跟读歌谣（4 句）
+Dd_intro.mp3   // Dd 字母名 + 发音 /d/
+Dd_dog.mp3   // dog（狗）
+Dd_doll.mp3   // doll（玩偶）
+Dd_duck.mp3   // duck（鸭子）
+Dd_dig.mp3   // dig（挖）
+Dd_chant.mp3   // 完整跟读歌谣（4 句）
+Ee_intro.mp3   // Ee 字母名 + 发音 /e/
+Ee_egg.mp3   // egg（鸡蛋）
+Ee_elephant.mp3   // elephant（大象）
+Ee_entrance.mp3   // entrance（入口）
+Ee_elbow.mp3   // elbow（手肘）
+Ee_chant.mp3   // 完整跟读歌谣（4 句）
+Ff_intro.mp3   // Ff 字母名 + 发音 /f/
+Ff_fan.mp3   // fan（扇子）
+Ff_fish.mp3   // fish（鱼）
+Ff_finger.mp3   // finger（手指）
+Ff_fox.mp3   // fox（狐狸）
+Ff_chant.mp3   // 完整跟读歌谣（4 句）
+Gg_intro.mp3   // Gg 字母名 + 发音 /ɡ/
+Gg_girl.mp3   // girl（女孩）
+Gg_goat.mp3   // goat（山羊）
+Gg_gorilla.mp3   // gorilla（大猩猩）
+Gg_gum.mp3   // gum（口香糖）
+Gg_chant.mp3   // 完整跟读歌谣（4 句）
+Hh_intro.mp3   // Hh 字母名 + 发音 /h/
+Hh_hat.mp3   // hat（帽子）
+Hh_hand.mp3   // hand（手）
+Hh_horse.mp3   // horse（马）
+Hh_hen.mp3   // hen（母鸡）
+Hh_chant.mp3   // 完整跟读歌谣（4 句）
+Ii_intro.mp3   // Ii 字母名 + 发音 /ɪ/
+Ii_insect.mp3   // insect（昆虫）
+Ii_iguana.mp3   // iguana（鬣蜥）
+Ii_ink.mp3   // ink（墨水）
+Ii_igloo.mp3   // igloo（冰屋）
+Ii_chant.mp3   // 完整跟读歌谣（4 句）
+Jj_intro.mp3   // Jj 字母名 + 发音 /dʒ/
+Jj_jam.mp3   // jam（果酱）
+Jj_jet.mp3   // jet（喷气飞机）
+Jj_juice.mp3   // juice（果汁）
+Jj_jeep.mp3   // jeep（吉普车）
+Jj_chant.mp3   // 完整跟读歌谣（4 句）
+Kk_intro.mp3   // Kk 字母名 + 发音 /k/
+Kk_key.mp3   // key（钥匙）
+Kk_king.mp3   // king（国王）
+Kk_kite.mp3   // kite（风筝）
+Kk_kid.mp3   // kid（小孩）
+Kk_chant.mp3   // 完整跟读歌谣（4 句）
+Ll_intro.mp3   // Ll 字母名 + 发音 /l/
+Ll_lion.mp3   // lion（狮子）
+Ll_leaf.mp3   // leaf（树叶）
+Ll_leg.mp3   // leg（腿）
+Ll_log.mp3   // log（木头）
+Ll_chant.mp3   // 完整跟读歌谣（4 句）
+Mm_intro.mp3   // Mm 字母名 + 发音 /m/
+Mm_monkey.mp3   // monkey（猴子）
+Mm_mouse.mp3   // mouse（老鼠）
+Mm_milk.mp3   // milk（牛奶）
+Mm_moon.mp3   // moon（月亮）
+Mm_chant.mp3   // 完整跟读歌谣（4 句）
+Nn_intro.mp3   // Nn 字母名 + 发音 /n/
+Nn_nose.mp3   // nose（鼻子）
+Nn_nest.mp3   // nest（鸟窝）
+Nn_net.mp3   // net（网）
+Nn_nut.mp3   // nut（坚果）
+Nn_chant.mp3   // 完整跟读歌谣（4 句）
+Oo_intro.mp3   // Oo 字母名 + 发音 /ɒ/
+Oo_octopus.mp3   // octopus（章鱼）
+Oo_orange.mp3   // orange（橙子）
+Oo_ostrich.mp3   // ostrich（鸵鸟）
+Oo_ox.mp3   // ox（公牛）
+Oo_chant.mp3   // 完整跟读歌谣（4 句）
+Pp_intro.mp3   // Pp 字母名 + 发音 /p/
+Pp_pig.mp3   // pig（猪）
+Pp_pen.mp3   // pen（钢笔）
+Pp_pencil.mp3   // pencil（铅笔）
+Pp_pan.mp3   // pan（平底锅）
+Pp_chant.mp3   // 完整跟读歌谣（4 句）
+Qq_intro.mp3   // Qq 字母名 + 发音 /kw/
+Qq_queen.mp3   // queen（女王）
+Qq_quilt.mp3   // quilt（被子）
+Qq_quiet.mp3   // quiet（安静的）
+Qq_quiz.mp3   // quiz（小测验）
+Qq_chant.mp3   // 完整跟读歌谣（4 句）
+Rr_intro.mp3   // Rr 字母名 + 发音 /r/
+Rr_rabbit.mp3   // rabbit（兔子）
+Rr_red.mp3   // red（红色）
+Rr_ring.mp3   // ring（戒指）
+Rr_robot.mp3   // robot（机器人）
+Rr_chant.mp3   // 完整跟读歌谣（4 句）
+Ss_intro.mp3   // Ss 字母名 + 发音 /s/
+Ss_sun.mp3   // sun（太阳）
+Ss_snake.mp3   // snake（蛇）
+Ss_socks.mp3   // socks（袜子）
+Ss_star.mp3   // star（星星）
+Ss_chant.mp3   // 完整跟读歌谣（4 句）
+Tt_intro.mp3   // Tt 字母名 + 发音 /t/
+Tt_tiger.mp3   // tiger（老虎）
+Tt_ten.mp3   // ten（十）
+Tt_turtle.mp3   // turtle（乌龟）
+Tt_toy.mp3   // toy（玩具）
+Tt_chant.mp3   // 完整跟读歌谣（4 句）
+Uu_intro.mp3   // Uu 字母名 + 发音 /ʌ/
+Uu_umbrella.mp3   // umbrella（雨伞）
+Uu_under.mp3   // under（在…下面）
+Uu_up.mp3   // up（向上）
+Uu_uncle.mp3   // uncle（叔叔）
+Uu_chant.mp3   // 完整跟读歌谣（4 句）
+Vv_intro.mp3   // Vv 字母名 + 发音 /v/
+Vv_van.mp3   // van（厢式车）
+Vv_vest.mp3   // vest（背心）
+Vv_violin.mp3   // violin（小提琴）
+Vv_vase.mp3   // vase（花瓶）
+Vv_chant.mp3   // 完整跟读歌谣（4 句）
+Ww_intro.mp3   // Ww 字母名 + 发音 /w/
+Ww_watch.mp3   // watch（手表）
+Ww_water.mp3   // water（水）
+Ww_window.mp3   // window（窗户）
+Ww_worm.mp3   // worm（虫子）
+Ww_chant.mp3   // 完整跟读歌谣（4 句）
+Xx_intro.mp3   // Xx 字母名 + 发音 /ks/
+Xx_box.mp3   // box（盒子）
+Xx_fox.mp3   // fox（狐狸）
+Xx_six.mp3   // six（六）
+Xx_ax.mp3   // ax（斧头）
+Xx_chant.mp3   // 完整跟读歌谣（4 句）
+Yy_intro.mp3   // Yy 字母名 + 发音 /j/
+Yy_yoyo.mp3   // yoyo（悠悠球）
+Yy_yacht.mp3   // yacht（游艇）
+Yy_yogurt.mp3   // yogurt（酸奶）
+Yy_yak.mp3   // yak（牦牛）
+Yy_chant.mp3   // 完整跟读歌谣（4 句）
+Zz_intro.mp3   // Zz 字母名 + 发音 /z/
+Zz_zebra.mp3   // zebra（斑马）
+Zz_zip.mp3   // zip（拉链）
+Zz_zoo.mp3   // zoo（动物园）
+Zz_zipper.mp3   // zipper（拉链齿）
+Zz_chant.mp3   // 完整跟读歌谣（4 句）
+v_a_intro.mp3   // 短元音 a /æ/
+v_a_cat.mp3   // cat（猫）
+v_a_hat.mp3   // hat（帽子）
+v_a_map.mp3   // map（地图）
+v_a_sad.mp3   // sad（伤心的）
+v_a_chant.mp3   // 完整跟读歌谣（4 句）
+v_e_intro.mp3   // 短元音 e /e/
+v_e_pen.mp3   // pen（钢笔）
+v_e_bed.mp3   // bed（床）
+v_e_leg.mp3   // leg（腿）
+v_e_ten.mp3   // ten（十）
+v_e_chant.mp3   // 完整跟读歌谣（4 句）
+v_i_intro.mp3   // 短元音 i /ɪ/
+v_i_pig.mp3   // pig（猪）
+v_i_big.mp3   // big（大的）
+v_i_sit.mp3   // sit（坐）
+v_i_dig.mp3   // dig（挖）
+v_i_chant.mp3   // 完整跟读歌谣（4 句）
+v_o_intro.mp3   // 短元音 o /ɒ/
+v_o_hot.mp3   // hot（热的）
+v_o_dog.mp3   // dog（狗）
+v_o_pot.mp3   // pot（锅）
+v_o_log.mp3   // log（木头）
+v_o_chant.mp3   // 完整跟读歌谣（4 句）
+v_u_intro.mp3   // 短元音 u /ʌ/
+v_u_bug.mp3   // bug（虫子）
+v_u_sun.mp3   // sun（太阳）
+v_u_cup.mp3   // cup（杯子）
+v_u_cut.mp3   // cut（切）
+v_u_chant.mp3   // 完整跟读歌谣（4 句）
