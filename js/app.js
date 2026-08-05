@@ -24,7 +24,7 @@
   /* ---------------- 状态 ---------------- */
   function defaultState() {
     return {
-      version: 3,
+      version: 4,
       points: 0,
       streak: 0,
       lastCheckIn: '',
@@ -58,7 +58,20 @@
     try {
       const raw = localStorage.getItem(SKEY);
       if (!raw) return defaultState();
-      return Object.assign(defaultState(), JSON.parse(raw));
+      var s = Object.assign(defaultState(), JSON.parse(raw));
+      // 迁移旧版本：旧逻辑会把 level 自动升到 >1（导致"学字母A却显示L4单词"），
+      // 新结构 L1 为唯一主线 → 强制回到 L1，定位到第一个未学字母。
+      // 保留 learned/badges/points 等真实进度，但重置当前单元任务计数，避免误判已完成。
+      if (!s.version || s.version < 4) {
+        s.level = 1;
+        s.unitIdx = firstUnlearnedInLevelOf(s.learned || [], 1);
+        s.version = 4;
+        s.tasks = { read: 0, spell: 0, chant: 0, game: 0 };
+        s.tasksDone = { read: false, spell: false, chant: false, game: false };
+        s.chantLines = [];
+        s.flippedToday = [];
+      }
+      return s;
     } catch (e) { return defaultState(); }
   }
   function save() {
@@ -120,8 +133,17 @@
         var obj = JSON.parse(txt);
         if (!obj || typeof obj !== 'object' || !('level' in obj) && !('points' in obj) && !('learned' in obj)) throw new Error('bad');
         state = Object.assign(defaultState(), obj);
+        // 导入的备份可能来自旧版本（level 已自动升到 >1），强制回到 L1 主线，避免显示错乱；
+        // 保留 learned/badges/points，但重置当前单元任务，避免旧 tasksDone 误判当前字母已完成。
+        state.level = 1;
+        state.unitIdx = firstUnlearnedInLevelOf(state.learned || [], 1);
+        state.version = 4;
+        state.tasks = { read: 0, spell: 0, chant: 0, game: 0 };
+        state.tasksDone = { read: false, spell: false, chant: false, game: false };
+        state.chantLines = [];
+        state.flippedToday = [];
         save(); renderAll(); closeSheet();
-        toast('数据已恢复 ✅');
+        toast('数据已恢复 ✅ 已回到 Level 1 字母学习主线');
       } catch (err) { toast('恢复失败：内容格式不正确'); }
     });
   }
@@ -404,13 +426,16 @@
     return state.learned.filter(function (g) { return g.indexOf(p) === 0; }).length;
   }
 
-  // 找到某 Level 第一个未学单元的索引（用于自选进阶时定位）
-  function firstUnlearnedInLevel(lv) {
+  // 找到某 Level 第一个未学单元的索引（纯函数，迁移/导入时可在 state 赋值前调用）
+  function firstUnlearnedInLevelOf(learned, lv) {
     var n = unitsInLevel(lv);
     for (var i = 0; i < n; i++) {
-      if (state.learned.indexOf(lv + '-' + i) < 0) return i;
+      if (learned.indexOf(lv + '-' + i) < 0) return i;
     }
     return 0;
+  }
+  function firstUnlearnedInLevel(lv) {
+    return firstUnlearnedInLevelOf(state.learned, lv);
   }
 
   function bumpTask(key, amount, goal, doneBonus, doneMsg) {
@@ -562,6 +587,10 @@
       '<div class="entry-row" style="margin-top:10px">' +
         '<div class="entry" data-action="open-resources" style="justify-content:center">🎵 本课配套资源</div>' +
       '</div>' +
+      (state.level > 1 ?
+        '<div class="entry-row" style="margin-top:10px">' +
+          '<div class="entry" data-action="back-to-main" style="justify-content:center">🏠 回到字母主线 L1</div>' +
+        '</div>' : '') +
       '<div class="entry-row" style="margin-top:10px">' +
         '<div class="entry shop" data-action="open-self-select" style="justify-content:center">🔮 自选进阶 L2-L5（选学）</div>' +
       '</div>';
@@ -1119,6 +1148,19 @@
           break;
         }
       case 'open-self-select': openSelfSelect(); break;
+      case 'back-to-main':
+        {
+          // 从自选级别回到 L1 字母主线，定位到第一个未学字母，重置任务
+          state.level = 1;
+          state.unitIdx = firstUnlearnedInLevel(1);
+          state.tasks = { read: 0, spell: 0, chant: 0, game: 0 };
+          state.tasksDone = { read: false, spell: false, chant: false, game: false };
+          state.chantLines = [];
+          state.flippedToday = [];
+          save(); renderAll();
+          toast('已回到 Level 1 字母主线');
+          break;
+        }
       case 'enter-self-level':
         {
           var slv = parseInt(node.dataset.level, 10);
